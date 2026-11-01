@@ -1,0 +1,57 @@
+Information: Building the design 'sg_sram_macro'. (HDL-193)
+Warning: Cannot find the design 'sg_sram_macro' in the library 'WORK'. (LBR-1)
+Warning: Unable to resolve reference 'sg_sram_macro' in 'sg_sram'. (LINK-5)
+ 
+****************************************
+Report : area
+Design : sg_top
+Version: V-2023.12-SP5
+Date   : Sat Oct 31 11:13:30 2026
+****************************************
+
+Information: Updating design information... (UID-85)
+Warning: Design 'sg_top' contains 3 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+Library(s) Used:
+
+    gscl45nm (File: /home/morris/FreePDK45/osu_soc/lib/files/gscl45nm.db)
+
+Number of ports:                         4361
+Number of nets:                         48531
+Number of cells:                        44270
+Number of combinational cells:          36933
+Number of sequential cells:              7321
+Number of macros/black boxes:               0
+Number of buf/inv:                      10186
+Number of references:                      30
+
+Combinational area:              91752.841861
+Buf/Inv area:                    16096.051053
+Noncombinational area:           68705.520447
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:                160458.362308
+Total area:                 undefined
+
+Information: This design contains black box (unknown) components. (RPT-8)
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area             Local cell area
+                                  --------------------  ------------------------------ 
+Hierarchical cell                 Absolute     Percent  Combi-      Noncombi-   Black-
+                                  Total        Total    national    national    boxes   Design
+--------------------------------  -----------  -------  ----------  ----------  ------  ---------
+sg_top                            160458.3623    100.0  26193.0406  10606.1802  0.0000  sg_top
+u_bmap                             42969.1073     26.8  20582.5592  22386.5481  0.0000  sg_bmap
+u_csr                              16448.4957     10.3   9303.8724   7144.6234  0.0000  sg_csr
+u_flog                             15473.7597      9.6   7038.5613   8435.1984  0.0000  sg_flog
+u_remap                             4067.4231      2.5   3675.0882    392.3348  0.0000  sg_remap
+u_sram                                 0.0000      0.0      0.0000      0.0000  0.0000  sg_sram
+u_win                              44700.3558     27.9   8953.7746   7247.8694  0.0000  sg_win
+u_win/u_seg                        28498.7119     17.8  16005.9456  12492.7663  0.0000  sg_segbuf
+--------------------------------  -----------  -------  ----------  ----------  ------  ---------
+Total                                                   91752.8419  68705.5204  0.0000
+
+1

@@ -1,0 +1,49 @@
+=== SRAMGuard UVM testbench (uvm-1.2) : uvm/run_uvm.sh sg_clean_test +PRINT_TOPO ===
+
+--------------------------------------------------------------
+Name                       Type                    Size  Value
+--------------------------------------------------------------
+uvm_test_top               sg_clean_test           -     @347 
+  env                      sg_env                  -     @365 
+    apb                    sg_apb_agent            -     @385 
+      drv                  sg_apb_driver           -     @580 
+        rsp_port           uvm_analysis_port       -     @599 
+        seq_item_port      uvm_seq_item_pull_port  -     @589 
+      mon                  sg_apb_monitor          -     @609 
+        ap                 uvm_analysis_port       -     @619 
+      sqr                  sg_apb_sqr              -     @443 
+        rsp_export         uvm_analysis_export     -     @452 
+        seq_item_export    uvm_seq_item_pull_imp   -     @570 
+    cov                    sg_coverage             -     @430 
+      acc_imp              uvm_analysis_imp_acc    -     @635 
+      rsp_imp              uvm_analysis_imp_rsp    -     @645 
+    fc                     sg_fault_ctrl           -     @421 
+    func                   sg_func_agent           -     @376 
+      drv                  sg_func_driver          -     @796 
+        rsp_port           uvm_analysis_port       -     @815 
+        seq_item_port      uvm_seq_item_pull_port  -     @805 
+      mon                  sg_func_monitor         -     @825 
+        acc_ap             uvm_analysis_port       -     @835 
+        rsp_ap             uvm_analysis_port       -     @845 
+      sqr                  sg_func_sqr             -     @659 
+        rsp_export         uvm_analysis_export     -     @668 
+        seq_item_export    uvm_seq_item_pull_imp   -     @786 
+    gold                   sg_golden_mem           -     @394 
+    irqm                   sg_irq_monitor          -     @412 
+    sb                     sg_scoreboard           -     @403 
+      acc_imp              uvm_analysis_imp_acc    -     @864 
+      rsp_imp              uvm_analysis_imp_rsp    -     @874 
+--------------------------------------------------------------
+
+Also in the bench:
+  sg_sva.sv        SVA module bound into sg_top (stall bound, hazards, CHK-7, mode graph, IRQ no-loss, ...)
+  sg_march_model   March MATS+/C-/LR/SS reference model (predicts which faults each algorithm detects)
+  sg_bira_model    brute-force repair reference;  tb_uvm_top: REQ-OT-1 transparency invariant
+  22 tests in sg_tests.svh / sg_corner_tests.svh
+
+This run (sg_clean_test):
+  uvm_test_top.env.sb [SB] reads 4161 writes 66 ce 0 ue 0 | CHK-5 windows 0 failures 0
+  uvm_test_top [RESULT] TEST PASS
+  UVM_ERROR :    0
+  UVM_FATAL :    0
+  REQ-OT-1 invariant evaluated 17007 times

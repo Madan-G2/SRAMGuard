@@ -1,0 +1,40 @@
+=== SRAMGuard UVM regression (VCS U-2023.03-SP2-8, uvm-1.2) : uvm/run_uvm.sh -cov all  [31-Oct-2026] ===
+
+TEST                       RESULT     UVM_ERROR      UVM_FATAL     
+sg_clean_test              PASS       0              0             
+sg_traffic_test            PASS       0              0             
+sg_csr_test                PASS       0              0             
+sg_soft_test               PASS       0              0             
+sg_eccinj_test             PASS       0              0             
+sg_hard_test               PASS       0              0             
+sg_hammer_test             PASS       0              0             
+sg_minbw_test              PASS       0              0             
+sg_repair_test             PASS       0              0             
+sg_fuse_test               PASS       0              0             
+sg_poweron_cov_test        PASS       0              0             
+sg_online_cov_test         PASS       0              0             
+sg_af_hazard_test          PASS       0              0             
+sg_af_inwindow_test        PASS       0              0             
+sg_capture_abort_test      PASS       0              0             
+sg_scrub_only_test         PASS       0              0             
+sg_bad_spare_test          PASS       0              0             
+sg_irq_race_test           PASS       0              0             
+sg_diag_test               PASS       0              0             
+sg_reset_midflight_test    PASS       0              0             
+sg_csr_regs_test           PASS       0              0             
+sg_sched_mbist_test        PASS       0              0             
+
+22 / 22 tests PASS, 0 UVM_ERROR, 0 UVM_FATAL, 0 assertion failures (25 assertions, 19 cover properties)
+
+=== Merged coverage (urg -dir uvm/cov.vdb) ===
+SCORE  LINE   COND   TOGGLE FSM    ASSERT GROUP  
+ 91.88  99.02  92.11  83.98  76.19 100.00 100.00 
+
+  sg_uvm_pkg::sg_coverage::cg_bira         100.00 %
+  sg_uvm_pkg::sg_coverage::cg_fault        100.00 %
+  sg_uvm_pkg::sg_coverage::cg_ecc          100.00 %
+  sg_uvm_pkg::sg_coverage::cg_access       100.00 %
+  sg_uvm_pkg::sg_coverage::cg_stall        100.00 %
+  sg_uvm_pkg::sg_coverage::cg_loc          100.00 %
+
+FSM 76 %: 14 of 15 unhit arcs are async-reset arcs; the 15th (W_REP_SW->W_REP_COPY) is unreachable.

@@ -1,0 +1,54 @@
+ 
+****************************************
+Report : power
+        -analysis_effort low
+Design : sg_top
+Version: V-2023.12-SP5
+Date   : Sat Oct 31 11:13:31 2026
+****************************************
+
+
+Library(s) Used:
+
+    gscl45nm (File: /home/morris/FreePDK45/osu_soc/lib/files/gscl45nm.db)
+
+
+Operating Conditions: typical   Library: gscl45nm
+Wire Load Model Mode: top
+
+
+Global Operating Voltage = 1.1  
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1nW
+
+
+Attributes
+----------
+i - Including register clock pin internal power
+
+
+  Cell Internal Power  =  14.6856 mW   (19%)
+  Net Switching Power  =  60.8209 mW   (81%)
+                         ---------
+Total Dynamic Power    =  75.5065 mW  (100%)
+
+Cell Leakage Power     = 876.5929 uW
+
+
+                 Internal         Switching           Leakage            Total
+Power Group      Power            Power               Power              Power   (   %    )  Attrs
+--------------------------------------------------------------------------------------------------
+io_pad             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
+clock_network     14.4988           60.5794        1.4882e+04           75.0931  (  98.31%)  i
+register       8.9316e-02        7.1302e-03        6.3800e+05            0.7344  (   0.96%)
+sequential         0.0000            0.0000            0.0000            0.0000  (   0.00%)
+combinational  9.6672e-02            0.2343        2.2371e+05            0.5547  (   0.73%)
+--------------------------------------------------------------------------------------------------
+Total             14.6848 mW        60.8209 mW     8.7659e+05 nW        76.3823 mW
+1

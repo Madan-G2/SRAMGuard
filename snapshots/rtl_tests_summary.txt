@@ -1,0 +1,49 @@
+=== SRAMGuard RTL tests (VCS, tb/tb_unit.sv + tb/tb_sg_top.sv) : sim/regress.sh  [31-Oct-2026 12:29] ===
+
+ECC  : 14400 single-error, 39492 double-error decodes checked
+REMAP: 2701 IO pairs + 74 singles + row CAM checked
+BIRA : 2677 repairable, 1323 unrepairable maps vs brute force (827 at the spare limit)
+TB_UNIT PASS
+tests: clean,traffic,traffic90,repair,fuse,hard,soft,eccinj,scrub,minbw,custom,hammer
+--- T1 power-on, fault-free
+    RESET_TEST took 45275 cycles (March C- on 4112 words = 41120)
+--- T2 online traffic, idle=50%, 60000 cycles
+    requests 29601 (rd 17639 wr 11962) ce=0 ue=0  windows +193 sweeps +0  max stall 2
+--- T2 online traffic, idle=10%, 60000 cycles
+    requests 80574 (rd 48237 wr 32337) ce=0 ue=0  windows +85 sweeps +0  max stall 2
+--- T4 power-on repair (BIRA + remap), memory re-verified end to end
+    two bad rows                       ok=1 fail=0 rows=2 ios=0 sig=00000cb628
+    bad IO in 4 rows                   ok=1 fail=0 rows=0 ios=1 sig=0009600000
+    bad IO x3 rows + 1 row             ok=1 fail=0 rows=1 ios=1 sig=00085003c2
+    unrepairable                       ok=0 fail=1 rows=0 ios=0 sig=0000000000
+    spare row 0 bad                    ok=1 fail=0 rows=1 ios=0 sig=1000093400
+    row + IO sharing, one spare bad    ok=1 fail=0 rows=0 ios=1 sig=2008900000
+    two bad IOs (one is a spare IO)    ok=1 fail=0 rows=0 ios=2 sig=0c98400000
+--- T5 repair signature export / reload
+    reload boot took 4101 cycles (no destructive test)
+--- T6 online hard fault, idle=60%, traffic on faulty row=0
+    fault in row 403: repaired after 129803 cycles (403 windows, 0 sweeps)
+--- T6 online hard fault, idle=30%, traffic on faulty row=1
+    fault in row 366: repaired after 296371 cycles (367 windows, 0 sweeps)
+--- T7 soft errors: scrubbing, classification, double flips
+    ce=32 (scrub corrected) transient=0 hard=0
+    in-window flips: transient counter +6
+--- T8 ECC_INJ hooks
+    ce=6731 ue=3
+--- T9 scrub-only mode and repeating-CE candidates
+    after 3 sweeps: ce=5 hard=1 repairs=1 transient=0
+--- T10 TEST_MIN_BW progress guarantee at 100% functional load
+    K=0 (off): 0 windows in 20000 cycles at full load
+    K=4: 104 windows in 60000 cycles at full load, max stall 2
+--- T11 custom microcode algorithm (MATS+ re-encoded) and BYPASS
+    custom algorithm found 2 faulty rows
+--- T12 traffic hammering the window under test (full + partial writes, reads)
+    648575 requests, windows 182, max stall 2
+max consecutive stall: 2, histogram:
+   stall 0: 1167449
+   stall 1: 55659
+   stall 2: 11232
+   stall 3: 0
+   stall 4: 0
+CHK-5 window checks: 4265, failures 0
+TB_SYS PASS

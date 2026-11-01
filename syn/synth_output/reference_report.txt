@@ -1,0 +1,55 @@
+Warning: Design 'sg_top' has '1' unresolved references. For more detailed information, use the "link" command. (UID-341)
+ 
+****************************************
+Report : reference
+Design : sg_top
+Version: V-2023.12-SP5
+Date   : Sat Oct 31 11:13:32 2026
+****************************************
+
+Attributes:
+    b - black box (unknown)
+   bo - allows boundary optimization
+    d - dont_touch
+   mo - map_only
+    h - hierarchical
+    n - noncombinational
+    r - removable
+    s - synthetic operator
+    u - contains unmapped logic
+
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+AND2X1             gscl45nm       2.346500     620   1454.829950  
+AND2X2             gscl45nm       2.815800      77    216.816596  
+AOI21X1            gscl45nm       2.815800     502   1413.531576  
+AOI22X1            gscl45nm       3.285100    1876   6162.847569  
+BUFX2              gscl45nm       2.346500     544   1276.495956  
+BUFX4              gscl45nm       2.815800       4     11.263200  
+DFFPOSX1           gscl45nm       7.978100     144   1148.846375  n
+DFFSR              gscl45nm      10.324600     916   9457.333801  n
+FAX1               gscl45nm       8.916700     129   1150.254347  r
+HAX1               gscl45nm       4.693000      62    290.965990  r
+INVX1              gscl45nm       1.407900    2508   3531.013139  
+INVX2              gscl45nm       1.877200      25     46.930000  
+INVX4              gscl45nm       3.285100      15     49.276500  
+INVX8              gscl45nm       3.285100       3      9.855300  
+MUX2X1             gscl45nm       3.754400     346   1299.022405  
+NAND2X1            gscl45nm       1.877200    1285   2412.202010  
+NAND3X1            gscl45nm       2.346500     632   1482.987949  
+NOR2X1             gscl45nm       2.346500     498   1168.556960  
+NOR3X1             gscl45nm       2.815800     306    861.634785  
+OAI21X1            gscl45nm       2.815800     635   1788.032969  
+OR2X1              gscl45nm       2.346500     320    750.879974  
+OR2X2              gscl45nm       2.815800      63    177.395397  
+XNOR2X1            gscl45nm       4.693000      72    337.895988  
+XOR2X1             gscl45nm       4.693000      64    300.351990  
+sg_bmap                       42969.107304       1  42969.107304  h, n
+sg_csr                        16448.495716       1  16448.495716  h, n
+sg_flog                       15473.759700       1  15473.759700  h, n
+sg_remap                       4067.423055       1   4067.423055  h, n
+sg_sram                           0.000000       1      0.000000  b, h
+sg_win                        44700.355806       1  44700.355806  h, n
+-----------------------------------------------------------------------------
+Total 30 references                                 160458.362308
+1

@@ -1,0 +1,68 @@
+=== SRAMGuard synthesis : Design Compiler V-2023.12-SP5, FreePDK45 OSU gscl45nm + DW foundation ===
+    script syn/synthesis.script (run: syn/run_dc.csh), clock 10 ns (100 MHz), compile_ultra
+    SRAM array (514 x 8 x 74 = 304 kbit) kept as a black-box macro; numbers are the logic around it
+
+  Timing Path Group 'clk'
+  -----------------------------------
+  Levels of Logic:             264.00
+  Critical Path Length:          9.98
+  Critical Path Slack:           0.00
+  Critical Path Clk Period:     10.00
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+
+  Cell Count
+  -----------------------------------
+  Hierarchical Cell Count:          7
+  Hierarchical Port Count:       4047
+  Leaf Cell Count:              44254
+  Buf/Inv Cell Count:           10186
+  Buf Cell Count:                1818
+  Inv Cell Count:                8368
+  CT Buf/Inv Cell Count:            0
+  Combinational Cell Count:     36934
+  Sequential Cell Count:         7320
+  Macro Count:                      0
+
+  Area
+  -----------------------------------
+  Combinational Area:    91752.841861
+  Noncombinational Area: 68705.520447
+  Buf/Inv Area:          16096.051053
+  Total Buffer Area:          4267.81
+  Total Inverter Area:       11828.24
+  Macro/Black Box Area:      0.000000
+  Net Area:                  0.000000
+  -----------------------------------
+  Cell Area:            160458.362308
+  Design Area:          160458.362308
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area             Local cell area
+                                  --------------------  ------------------------------ 
+Hierarchical cell                 Absolute     Percent  Combi-      Noncombi-   Black-
+                                  Total        Total    national    national    boxes   Design
+--------------------------------  -----------  -------  ----------  ----------  ------  ---------
+sg_top                            160458.3623    100.0  26193.0406  10606.1802  0.0000  sg_top
+u_bmap                             42969.1073     26.8  20582.5592  22386.5481  0.0000  sg_bmap
+u_csr                              16448.4957     10.3   9303.8724   7144.6234  0.0000  sg_csr
+u_flog                             15473.7597      9.6   7038.5613   8435.1984  0.0000  sg_flog
+u_remap                             4067.4231      2.5   3675.0882    392.3348  0.0000  sg_remap
+u_sram                                 0.0000      0.0      0.0000      0.0000  0.0000  sg_sram
+u_win                              44700.3558     27.9   8953.7746   7247.8694  0.0000  sg_win
+u_win/u_seg                        28498.7119     17.8  16005.9456  12492.7663  0.0000  sg_segbuf
+--------------------------------  -----------  -------  ----------  ----------  ------  ---------
+Total                                                   91752.8419  68705.5204  0.0000
+
+Total Dynamic Power    =  75.5065 mW  (100%)
+Cell Leakage Power     = 876.5929 uW
+  (default switching activity, no SAIF; the clock network dominates)
+
+  Startpoint: u_ctl/u_bira/b_reg[1]
+  Endpoint: u_ctl/u_bira/best_b_reg[2]
+  slack (MET)                                                        0.00

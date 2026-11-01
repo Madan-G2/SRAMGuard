@@ -1,0 +1,46 @@
+# SRAMGuard synthesis, same flow as FIFO2/Fifo/runfifo.py (FreePDK45 OSU gscl45nm + DesignWare).
+# Run from syn/:  ./run_dc.csh
+# The 514 x 8 x 74 array (sg_sram_macro) is NOT read: it stays a black-box memory macro,
+# so the area / timing below are the SRAMGuard logic around the array.
+
+set link_library   {* /home/morris/FreePDK45/osu_soc/lib/files/gscl45nm.db /apps/synopsys/PrimeTimeNew/pts/Q-2019.12/libraries/syn/dw_foundation.sldb}
+set target_library {/home/morris/FreePDK45/osu_soc/lib/files/gscl45nm.db}
+set synthetic_library {dw_foundation.sldb}
+
+set rtl ../rtl
+set outdir synth_output
+file mkdir $outdir
+
+analyze -format sverilog [list $rtl/sg_pkg.sv $rtl/sg_ecc_pkg.sv $rtl/sg_ecc.sv $rtl/sg_sram.sv \
+    $rtl/sg_remap.sv $rtl/sg_mbist.sv $rtl/sg_flog.sv $rtl/sg_bmap.sv $rtl/sg_bira.sv $rtl/sg_segbuf.sv \
+    $rtl/sg_scrub.sv $rtl/sg_win.sv $rtl/sg_arb.sv $rtl/sg_ctl.sv $rtl/sg_csr.sv $rtl/sg_top.sv]
+elaborate sg_top
+current_design sg_top
+link
+
+# Define the clock constraint
+set clkperiod 10.0
+if {[info exists env(CLKPERIOD)]} { set clkperiod $env(CLKPERIOD) }
+create_clock [get_ports clk] -name clk -period $clkperiod
+set_input_delay  0 -clock clk [remove_from_collection [all_inputs] [get_ports clk]]
+set_output_delay 0 -clock clk [all_outputs]
+
+check_design > $outdir/check_design.txt
+
+# Run synthesis
+compile_ultra
+
+# Generate Reports
+report_area -hierarchy > $outdir/area_report.txt
+report_timing          > $outdir/timing_report.txt
+report_qor             > $outdir/qor_report.txt
+report_power           > $outdir/power_report.txt
+report_reference       > $outdir/reference_report.txt
+
+# Write Gate-Level Netlist (legal Verilog names first)
+change_names -rules verilog -hierarchy
+report_constraint -all_violators > $outdir/constraint_violators.txt
+write -hierarchy -format verilog -output $outdir/sg_top_gates.v
+write -hierarchy -format ddc     -output $outdir/sg_top.ddc
+
+quit
