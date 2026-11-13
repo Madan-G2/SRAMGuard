@@ -1,4 +1,5 @@
 # SRAMGuard: Self-Healing SRAM
+<!-- maintained by Madan Girish -->
 
 SRAMGuard is an on-chip SRAM wrapper that handles its own testing and repair. At power-on it runs a March test across the full array, figures out the cheapest repair from whatever faults it finds, and maps bad rows and IOs onto spares — all before handing control back to the system. After that it keeps testing in the background, one small window at a time, without touching the data the application already stored. Soft errors get corrected by ECC and scrubbed; a cell that keeps failing gets its row copied to a spare while traffic keeps flowing.
 
